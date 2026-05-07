@@ -151,7 +151,7 @@ export default function Portfolio() {
       {/* Hero */}
       <Box id="home" sx={{ minHeight: "100vh", display: "flex", alignItems: "center", background: "radial-gradient(ellipse at 20% 50%, #0d1b3e 0%, #0a0a0a 60%)", pt: 8 }}>
         <Container maxWidth="lg">
-          <Grid container spacing={6} alignItems="center">
+          <Grid container spacing={6} sx={{ alignItems: "center" }}>
             <Grid item xs={12} md={7}>
               <Box sx={{ color: "#00b4ff", mb: 1, letterSpacing: 3, textTransform: "uppercase", fontSize: 13 }}>{t.welcome}</Box>
               <Box sx={{ mb: 1, lineHeight: 1.2, color: "#ffffff", fontSize: { xs: 36, md: 48 }, fontWeight: "bold" }}>{t.hello}</Box>
