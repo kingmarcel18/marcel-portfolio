@@ -3,7 +3,6 @@
 import { useState } from "react"
 import Box from "@mui/material/Box"
 import Container from "@mui/material/Container"
-import Stack from "@mui/material/Stack"
 import Chip from "@mui/material/Chip"
 import Card from "@mui/material/Card"
 import CardContent from "@mui/material/CardContent"
@@ -161,12 +160,8 @@ export default function Portfolio() {
               <Box sx={{ color: "#ffffff", mb: 3, fontSize: 20 }}>{t.role}</Box>
               <Box sx={{ color: "#ffffff", mb: 4, maxWidth: 500, lineHeight: 1.8 }}>{t.desc}</Box>
               <Box sx={{ display: "flex", gap: 2 }}>
-                <Button variant="contained" onClick={() => scrollTo(lang === "en" ? "Contact" : "联系")} sx={{ bgcolor: "#00b4ff", "&:hover": { bgcolor: "#0066ff" }, borderRadius: 2, px: 3 }}>
-                  {t.contactBtn}
-                </Button>
-                <Button variant="outlined" onClick={() => scrollTo(lang === "en" ? "Skills" : "技能")} sx={{ borderColor: "#00b4ff", color: "#00b4ff", "&:hover": { borderColor: "#0066ff", color: "#0066ff" }, borderRadius: 2, px: 3 }}>
-                  {t.skillsBtn}
-                </Button>
+                <Button variant="contained" onClick={() => scrollTo(lang === "en" ? "Contact" : "联系")} sx={{ bgcolor: "#00b4ff", "&:hover": { bgcolor: "#0066ff" }, borderRadius: 2, px: 3 }}>{t.contactBtn}</Button>
+                <Button variant="outlined" onClick={() => scrollTo(lang === "en" ? "Skills" : "技能")} sx={{ borderColor: "#00b4ff", color: "#00b4ff", "&:hover": { borderColor: "#0066ff", color: "#0066ff" }, borderRadius: 2, px: 3 }}>{t.skillsBtn}</Button>
               </Box>
             </Box>
             <Box sx={{ flex: "1 1 300px", display: "flex", justifyContent: "center" }}>
@@ -195,11 +190,11 @@ export default function Portfolio() {
       {/* Skills */}
       <Box id="skills" sx={{ py: 10, bgcolor: "#0d0d0d" }}>
         <Container maxWidth="lg">
-          <Stack alignItems="center" mb={6}>
+          <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", mb: 6 }}>
             <Box sx={{ color: "#00b4ff", letterSpacing: 3, textTransform: "uppercase", fontSize: 12 }}>{t.skillsSubtitle}</Box>
             <Box sx={{ color: "#ffffff", fontWeight: "bold", fontSize: 32, mt: 1 }}>{t.skillsTitle}</Box>
             <Box sx={{ width: 60, height: 3, bgcolor: "#00b4ff", mt: 2, borderRadius: 2 }} />
-          </Stack>
+          </Box>
           <Box sx={{ display: "flex", flexWrap: "wrap", gap: 3 }}>
             {Object.entries(skills).map(([category, items]) => (
               <Box key={category} sx={{ flex: "1 1 400px" }}>
@@ -225,12 +220,12 @@ export default function Portfolio() {
       {/* Languages */}
       <Box id="languages" sx={{ py: 10, bgcolor: "#0a0a0a" }}>
         <Container maxWidth="lg">
-          <Stack alignItems="center" mb={6}>
+          <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", mb: 6 }}>
             <Box sx={{ color: "#00b4ff", letterSpacing: 3, textTransform: "uppercase", fontSize: 12 }}>{t.langSubtitle}</Box>
             <Box sx={{ color: "#ffffff", fontWeight: "bold", fontSize: 32, mt: 1 }}>{t.langTitle}</Box>
             <Box sx={{ width: 60, height: 3, bgcolor: "#00b4ff", mt: 2, borderRadius: 2 }} />
-          </Stack>
-          <Stack spacing={3} maxWidth={600} mx="auto">
+          </Box>
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 3, maxWidth: 600, mx: "auto" }}>
             {t.languages.map((item, i) => (
               <Card key={i} sx={{ bgcolor: "#111", border: "1px solid #1a1a2e", borderRadius: 2, "&:hover": { borderColor: "#00b4ff44" }, transition: "border 0.2s" }}>
                 <CardContent>
@@ -247,19 +242,19 @@ export default function Portfolio() {
                 </CardContent>
               </Card>
             ))}
-          </Stack>
+          </Box>
         </Container>
       </Box>
 
       {/* Education */}
       <Box id="education" sx={{ py: 10, bgcolor: "#0d0d0d" }}>
         <Container maxWidth="lg">
-          <Stack alignItems="center" mb={6}>
+          <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", mb: 6 }}>
             <Box sx={{ color: "#00b4ff", letterSpacing: 3, textTransform: "uppercase", fontSize: 12 }}>{t.eduSubtitle}</Box>
             <Box sx={{ color: "#ffffff", fontWeight: "bold", fontSize: 32, mt: 1 }}>{t.eduTitle}</Box>
             <Box sx={{ width: 60, height: 3, bgcolor: "#00b4ff", mt: 2, borderRadius: 2 }} />
-          </Stack>
-          <Stack spacing={3} maxWidth={700} mx="auto">
+          </Box>
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 3, maxWidth: 700, mx: "auto" }}>
             {t.edu.map((item, i) => (
               <Card key={i} sx={{ bgcolor: "#111", border: "1px solid #1a1a2e", borderRadius: 2, "&:hover": { borderColor: "#00b4ff44" }, transition: "border 0.2s" }}>
                 <CardContent>
@@ -283,19 +278,19 @@ export default function Portfolio() {
                 </CardContent>
               </Card>
             ))}
-          </Stack>
+          </Box>
         </Container>
       </Box>
 
       {/* Contact */}
       <Box id="contact" sx={{ py: 10, bgcolor: "#0a0a0a" }}>
         <Container maxWidth="lg">
-          <Stack alignItems="center" mb={6}>
+          <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", mb: 6 }}>
             <Box sx={{ color: "#00b4ff", letterSpacing: 3, textTransform: "uppercase", fontSize: 12 }}>{t.contactSubtitle}</Box>
             <Box sx={{ color: "#ffffff", fontWeight: "bold", fontSize: 32, mt: 1 }}>{t.contactTitle}</Box>
             <Box sx={{ width: 60, height: 3, bgcolor: "#00b4ff", mt: 2, borderRadius: 2 }} />
-          </Stack>
-          <Stack spacing={3} maxWidth={500} mx="auto">
+          </Box>
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 3, maxWidth: 500, mx: "auto" }}>
             {t.contact.map((item, i) => (
               <Card key={i} sx={{ bgcolor: "#111", border: "1px solid #1a1a2e", borderRadius: 2, "&:hover": { borderColor: "#00b4ff44", transform: "translateX(4px)" }, transition: "all 0.2s" }}>
                 <CardContent>
@@ -313,7 +308,7 @@ export default function Portfolio() {
                 </CardContent>
               </Card>
             ))}
-          </Stack>
+          </Box>
         </Container>
       </Box>
 
