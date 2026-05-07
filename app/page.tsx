@@ -3,7 +3,6 @@
 import { useState } from "react"
 import Box from "@mui/material/Box"
 import Container from "@mui/material/Container"
-import Grid from "@mui/material/Grid"
 import Stack from "@mui/material/Stack"
 import Chip from "@mui/material/Chip"
 import Card from "@mui/material/Card"
@@ -129,7 +128,7 @@ export default function Portfolio() {
             <Box sx={{ color: "#00b4ff", fontSize: 20, fontWeight: "bold" }}>
               M<span style={{ color: "white" }}>.</span>
             </Box>
-            <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
+            <Box sx={{ display: "flex", gap: 1, alignItems: "center", flexWrap: "wrap" }}>
               {t.nav.map(item => (
                 <Button key={item} onClick={() => scrollTo(item)} sx={{ color: active === item ? "#00b4ff" : "#ffffff", fontWeight: active === item ? "bold" : "normal", textTransform: "none", "&:hover": { color: "#00b4ff" } }}>
                   {item}
@@ -151,12 +150,12 @@ export default function Portfolio() {
       {/* Hero */}
       <Box id="home" sx={{ minHeight: "100vh", display: "flex", alignItems: "center", background: "radial-gradient(ellipse at 20% 50%, #0d1b3e 0%, #0a0a0a 60%)", pt: 8 }}>
         <Container maxWidth="lg">
-          <Grid container spacing={6} sx={{ alignItems: "center" }}>
-            <Grid item xs={12} md={7}>
+          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center" }}>
+            <Box sx={{ flex: "1 1 400px" }}>
               <Box sx={{ color: "#00b4ff", mb: 1, letterSpacing: 3, textTransform: "uppercase", fontSize: 13 }}>{t.welcome}</Box>
               <Box sx={{ mb: 1, lineHeight: 1.2, color: "#ffffff", fontSize: { xs: 36, md: 48 }, fontWeight: "bold" }}>{t.hello}</Box>
               <Box sx={{ mb: 1, background: "linear-gradient(90deg, #00b4ff, #0066ff)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", lineHeight: 1.2, fontSize: { xs: 36, md: 48 }, fontWeight: "bold" }}>
-                {lang === "en" ? "Marcellino Kurniawan Saputra" : "吴阳亮"}
+                {lang === "en" ? "Marcellino" : "吴阳亮"}
               </Box>
               <Box sx={{ color: "#ffffff", mb: 1, fontSize: 24 }}>{lang === "en" ? "吴阳亮" : "Marcellino Kurniawan Saputra"}</Box>
               <Box sx={{ color: "#ffffff", mb: 3, fontSize: 20 }}>{t.role}</Box>
@@ -169,27 +168,27 @@ export default function Portfolio() {
                   {t.skillsBtn}
                 </Button>
               </Box>
-            </Grid>
-            <Grid item xs={12} md={5} sx={{ display: "flex", justifyContent: "center" }}>
+            </Box>
+            <Box sx={{ flex: "1 1 300px", display: "flex", justifyContent: "center" }}>
               <Box sx={{ width: 280, height: 280, borderRadius: "50%", background: "linear-gradient(135deg, #00b4ff22, #0066ff44)", border: "2px solid #00b4ff44", display: "flex", alignItems: "center", justifyContent: "center", position: "relative", "&::before": { content: '""', position: "absolute", inset: -8, borderRadius: "50%", border: "1px solid #00b4ff22" } }}>
-                <Avatar src="/profile.jpg" sx={{ width: 240, height: 240, "& img": { objectPosition: "center 20%", objectFit: "cover" } }} />
+                <Avatar src="/profile.jpg" sx={{ width: 240, height: 240, "& img": { objectPosition: "center 10%", objectFit: "cover" } }} />
               </Box>
-            </Grid>
-          </Grid>
+            </Box>
+          </Box>
 
           {/* Info Cards */}
-          <Grid container spacing={2} mt={6}>
+          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2, mt: 6 }}>
             {t.infoCards.map((info, i) => (
-              <Grid item xs={6} md={3} key={i}>
+              <Box key={i} sx={{ flex: "1 1 150px" }}>
                 <Card sx={{ bgcolor: "#111", border: "1px solid #1a1a2e", borderRadius: 2, "&:hover": { borderColor: "#00b4ff44", transform: "translateY(-2px)" }, transition: "all 0.2s" }}>
                   <CardContent>
                     <Box sx={{ color: "#ffffff", textTransform: "uppercase", letterSpacing: 1, fontSize: 11, mb: 0.5, opacity: 0.7 }}>{info.label}</Box>
                     <Box sx={{ color: "#ffffff", fontWeight: "bold", fontSize: 14 }}>{info.value}</Box>
                   </CardContent>
                 </Card>
-              </Grid>
+              </Box>
             ))}
-          </Grid>
+          </Box>
         </Container>
       </Box>
 
@@ -201,9 +200,9 @@ export default function Portfolio() {
             <Box sx={{ color: "#ffffff", fontWeight: "bold", fontSize: 32, mt: 1 }}>{t.skillsTitle}</Box>
             <Box sx={{ width: 60, height: 3, bgcolor: "#00b4ff", mt: 2, borderRadius: 2 }} />
           </Stack>
-          <Grid container spacing={3}>
+          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 3 }}>
             {Object.entries(skills).map(([category, items]) => (
-              <Grid item xs={12} md={6} key={category}>
+              <Box key={category} sx={{ flex: "1 1 400px" }}>
                 <Card sx={{ bgcolor: "#111", border: "1px solid #1a1a2e", borderRadius: 2, height: "100%", "&:hover": { borderColor: "#00b4ff44" }, transition: "border 0.2s" }}>
                   <CardContent>
                     <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 2 }}>
@@ -217,9 +216,9 @@ export default function Portfolio() {
                     </Box>
                   </CardContent>
                 </Card>
-              </Grid>
+              </Box>
             ))}
-          </Grid>
+          </Box>
         </Container>
       </Box>
 
