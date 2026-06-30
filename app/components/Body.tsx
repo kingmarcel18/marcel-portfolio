@@ -39,7 +39,7 @@ const cardSx = {
 export default function Body({ t, lang, onNav }: BodyProps) {
   return (
     <>
-      <Box id="home" sx={{ minHeight: "100vh", display: "flex", alignItems: "center", background: "radial-gradient(ellipse at 20% 50%, #0d1b3e 0%, #0a0a0a 60%)", pt: 8 }}>
+      <Box component="header" id="home" sx={{ minHeight: "100vh", display: "flex", alignItems: "center", background: "radial-gradient(ellipse at 20% 50%, #0d1b3e 0%, #0a0a0a 60%)", pt: 8 }}>
         <Container maxWidth="lg">
           <Box sx={{ display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center" }}>
             <Box sx={{ flex: "1 1 400px" }}>
@@ -78,7 +78,7 @@ export default function Body({ t, lang, onNav }: BodyProps) {
         </Container>
       </Box>
 
-      <Box id="skills" sx={{ py: 10, bgcolor: colors.bgAlt }}>
+      <Box component="section" id="skills" sx={{ py: 10, bgcolor: colors.bgAlt }}>
         <Container maxWidth="lg">
           <SectionHeading subtitle={t.skillsSubtitle} title={t.skillsTitle} />
           <Box sx={{ display: "flex", flexWrap: "wrap", gap: 3 }}>
@@ -103,7 +103,7 @@ export default function Body({ t, lang, onNav }: BodyProps) {
         </Container>
       </Box>
 
-      <Box id="languages" sx={{ py: 10, bgcolor: colors.bg }}>
+      <Box component="section" id="languages" sx={{ py: 10, bgcolor: colors.bg }}>
         <Container maxWidth="lg">
           <SectionHeading subtitle={t.langSubtitle} title={t.langTitle} />
           <Box sx={{ display: "flex", flexDirection: "column", gap: 3, maxWidth: 600, mx: "auto" }}>
@@ -127,7 +127,7 @@ export default function Body({ t, lang, onNav }: BodyProps) {
         </Container>
       </Box>
 
-      <Box id="education" sx={{ py: 10, bgcolor: colors.bgAlt }}>
+      <Box component="section" id="education" sx={{ py: 10, bgcolor: colors.bgAlt }}>
         <Container maxWidth="lg">
           <SectionHeading subtitle={t.eduSubtitle} title={t.eduTitle} />
           <Box sx={{ display: "flex", flexDirection: "column", gap: 3, maxWidth: 700, mx: "auto" }}>
@@ -158,7 +158,7 @@ export default function Body({ t, lang, onNav }: BodyProps) {
         </Container>
       </Box>
 
-      <Box id="contact" sx={{ py: 10, bgcolor: colors.bg }}>
+      <Box component="section" id="contact" sx={{ py: 10, bgcolor: colors.bg }}>
         <Container maxWidth="lg">
           <SectionHeading subtitle={t.contactSubtitle} title={t.contactTitle} />
           <Box sx={{ display: "flex", flexDirection: "column", gap: 3, maxWidth: 500, mx: "auto" }}>

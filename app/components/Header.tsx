@@ -13,7 +13,7 @@ type HeaderProps = {
 
 export default function Header({ t, lang, active, onNav, onLang }: HeaderProps) {
   return (
-    <Box sx={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, bgcolor: "rgba(10,10,10,0.85)", backdropFilter: "blur(10px)", borderBottom: `1px solid ${colors.border}` }}>
+    <Box component="nav" id="navbar" sx={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, bgcolor: "rgba(10,10,10,0.85)", backdropFilter: "blur(10px)", borderBottom: `1px solid ${colors.border}` }}>
       <Container maxWidth="lg">
         <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", py: 2 }}>
           <Box sx={{ color: colors.accent, fontSize: 20, fontWeight: "bold" }}>
