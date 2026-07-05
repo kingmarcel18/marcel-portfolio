@@ -76,9 +76,9 @@ export default function Body({ t, lang, onNav }: BodyProps) {
             </Box>
             <Box sx={{ flex: "1 1 380px" }}>
               <Box component="p" sx={{ color: colors.text, m: 0, mb: 3, lineHeight: 1.8, opacity: 0.9 }}>{t.aboutText}</Box>
-              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2, mb: 3 }}>
+              <Box component="ul" sx={{ display: "flex", flexWrap: "wrap", gap: 2, mb: 3, listStyle: "none", m: 0, p: 0 }}>
                 {t.infoCards.map((info, i) => (
-                  <Box key={i} sx={{ flex: "1 1 140px" }}>
+                  <Box component="li" key={i} sx={{ flex: "1 1 140px" }}>
                     <Card sx={cardSx}>
                       <CardContent>
                         <Box sx={{ color: colors.text, textTransform: "uppercase", letterSpacing: 1, fontSize: 11, mb: 0.5, opacity: 0.7 }}>{info.label}</Box>
@@ -89,9 +89,9 @@ export default function Body({ t, lang, onNav }: BodyProps) {
                 ))}
               </Box>
               <Box sx={{ color: colors.accent, textTransform: "uppercase", letterSpacing: 2, fontSize: 12, mb: 1.5 }}>{t.langLabel}</Box>
-              <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5 }}>
+              <Box component="ul" sx={{ display: "flex", flexDirection: "column", gap: 1.5, listStyle: "none", m: 0, p: 0 }}>
                 {t.languages.map((item, i) => (
-                  <Box key={i}>
+                  <Box component="li" key={i}>
                     <Box sx={{ display: "flex", justifyContent: "space-between", mb: 0.5 }}>
                       <Box sx={{ color: colors.text, fontSize: 13 }}>{item.lang}</Box>
                       <Box sx={{ color: colors.accent, fontSize: 12 }}>{item.level} · {item.score}%</Box>
@@ -110,18 +110,20 @@ export default function Body({ t, lang, onNav }: BodyProps) {
       <Box component="section" id="skills" sx={{ py: 10, bgcolor: colors.bg }}>
         <Container maxWidth="lg">
           <SectionHeading subtitle={t.skillsSubtitle} title={t.skillsTitle} />
-          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 3 }}>
+          <Box component="ul" sx={{ display: "flex", flexWrap: "wrap", gap: 3, listStyle: "none", m: 0, p: 0 }}>
             {Object.entries(skills).map(([category, items]) => (
-              <Box key={category} sx={{ flex: "1 1 400px" }}>
+              <Box component="li" key={category} sx={{ flex: "1 1 400px" }}>
                 <Card sx={{ ...cardSx, height: "100%" }}>
                   <CardContent>
                     <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 2 }}>
                       <CodeIcon sx={{ color: colors.accent, fontSize: 18 }} />
                       <Box sx={{ color: colors.accent, fontWeight: "bold", fontSize: 14 }}>{category}</Box>
                     </Box>
-                    <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+                    <Box component="ul" sx={{ display: "flex", flexWrap: "wrap", gap: 1, listStyle: "none", m: 0, p: 0 }}>
                       {items.map(skill => (
-                        <Chip key={skill} label={skill} size="small" sx={{ bgcolor: colors.navy, color: colors.text, border: "1px solid #00b4ff33", "&:hover": { bgcolor: "#00b4ff22" } }} />
+                        <Box component="li" key={skill}>
+                          <Chip label={skill} size="small" sx={{ bgcolor: colors.navy, color: colors.text, border: "1px solid #00b4ff33", "&:hover": { bgcolor: "#00b4ff22" } }} />
+                        </Box>
                       ))}
                     </Box>
                   </CardContent>
@@ -135,9 +137,9 @@ export default function Body({ t, lang, onNav }: BodyProps) {
       <Box component="section" id="projects" sx={{ py: 10, bgcolor: colors.bgAlt }}>
         <Container maxWidth="lg">
           <SectionHeading subtitle={t.projectsSubtitle} title={t.projectsTitle} />
-          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 3 }}>
+          <Box component="ul" sx={{ display: "flex", flexWrap: "wrap", gap: 3, listStyle: "none", m: 0, p: 0 }}>
             {t.projects.map((project, i) => (
-              <Box key={i} sx={{ flex: "1 1 300px" }}>
+              <Box component="li" key={i} sx={{ flex: "1 1 300px" }}>
                 <Card sx={{ ...cardSx, height: "100%", display: "flex", flexDirection: "column", "&:hover": { borderColor: "#00b4ff44", transform: "translateY(-4px)" }, transition: "all 0.2s" }}>
                   <Box sx={{ height: 160, display: "flex", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, #00b4ff22, #0066ff44)", borderBottom: `1px solid ${colors.border}` }}>
                     <Box sx={{ color: colors.text, fontSize: 48, fontWeight: "bold", opacity: 0.4 }}>{project.title.charAt(0)}</Box>
@@ -145,9 +147,11 @@ export default function Body({ t, lang, onNav }: BodyProps) {
                   <CardContent sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
                     <Box component="h3" sx={{ color: colors.text, fontWeight: "bold", fontSize: 18, m: 0, mb: 1 }}>{project.title}</Box>
                     <Box sx={{ color: colors.text, fontSize: 14, opacity: 0.8, lineHeight: 1.7, mb: 2, flex: 1 }}>{project.desc}</Box>
-                    <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 2 }}>
+                    <Box component="ul" sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 2, listStyle: "none", m: 0, p: 0 }}>
                       {project.tags.map(tag => (
-                        <Chip key={tag} label={tag} size="small" sx={{ bgcolor: colors.navy, color: colors.accent, border: "1px solid #00b4ff33", fontSize: 11 }} />
+                        <Box component="li" key={tag}>
+                          <Chip label={tag} size="small" sx={{ bgcolor: colors.navy, color: colors.accent, border: "1px solid #00b4ff33", fontSize: 11 }} />
+                        </Box>
                       ))}
                     </Box>
                     <Box component="a" href={project.link} sx={{ display: "inline-flex", alignItems: "center", gap: 0.5, color: colors.accent, textDecoration: "none", fontSize: 14, fontWeight: "bold", "&:hover": { color: colors.accentDark } }}>
@@ -182,9 +186,9 @@ export default function Body({ t, lang, onNav }: BodyProps) {
       <Box component="section" id="contact" sx={{ py: 10, bgcolor: colors.bgAlt }}>
         <Container maxWidth="lg">
           <SectionHeading subtitle={t.contactSubtitle} title={t.contactTitle} />
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 3, maxWidth: 500, mx: "auto" }}>
+          <Box component="ul" sx={{ display: "flex", flexDirection: "column", gap: 3, maxWidth: 500, mx: "auto", listStyle: "none", m: 0, p: 0 }}>
             {t.contact.map((item, i) => (
-              <Card key={i} sx={{ ...cardSx, "&:hover": { borderColor: "#00b4ff44", transform: "translateX(4px)" }, transition: "all 0.2s" }}>
+              <Card component="li" key={i} sx={{ ...cardSx, "&:hover": { borderColor: "#00b4ff44", transform: "translateX(4px)" }, transition: "all 0.2s" }}>
                 <CardContent>
                   <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
                     <Box sx={{ width: 44, height: 44, borderRadius: 2, bgcolor: colors.navy, display: "flex", alignItems: "center", justifyContent: "center" }}>

@@ -20,11 +20,15 @@ export default function Header({ t, lang, active, onNav, onLang }: HeaderProps) 
             M<span style={{ color: colors.text }}>.</span>
           </Box>
           <Box sx={{ display: "flex", gap: 1, alignItems: "center", flexWrap: "wrap" }}>
-            {t.nav.map(item => (
-              <Button key={item} onClick={() => onNav(item)} sx={{ color: active === item ? colors.accent : colors.text, fontWeight: active === item ? "bold" : "normal", textTransform: "none", "&:hover": { color: colors.accent } }}>
-                {item}
-              </Button>
-            ))}
+            <Box component="ul" sx={{ display: "flex", gap: 1, alignItems: "center", flexWrap: "wrap", listStyle: "none", m: 0, p: 0 }}>
+              {t.nav.map(item => (
+                <Box component="li" key={item}>
+                  <Button onClick={() => onNav(item)} sx={{ color: active === item ? colors.accent : colors.text, fontWeight: active === item ? "bold" : "normal", textTransform: "none", "&:hover": { color: colors.accent } }}>
+                    {item}
+                  </Button>
+                </Box>
+              ))}
+            </Box>
             <Box sx={{ ml: 1, display: "flex", border: "1px solid #00b4ff44", borderRadius: 2, overflow: "hidden" }}>
               {(["en", "zh"] as Lang[]).map(code => (
                 <Button key={code} onClick={() => onLang(code)} sx={{ px: 1.5, py: 0.5, minWidth: 0, bgcolor: lang === code ? colors.accent : "transparent", color: lang === code ? colors.text : colors.accent, borderRadius: 0, textTransform: "none", fontSize: 12, "&:hover": { bgcolor: lang === code ? colors.accent : "#00b4ff22" } }}>
